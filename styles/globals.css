@@ -1,3 +1,9 @@
+:root {
+  --color-white: #fbfbfd;
+  --color-black: #313131;
+  --color-orange: #fdb545;
+}
+
 html,
 body {
   padding: 0;
@@ -9,6 +15,14 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 * {
