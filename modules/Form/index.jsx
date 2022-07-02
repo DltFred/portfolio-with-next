@@ -1,27 +1,36 @@
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { Title } from '../../components/Title'
-import { useField } from '../../hooks/useField'
+import { useForm } from '../../hooks/useForm'
 import style from './index.module.css'
-export const Form = () => {
-  const nameField = useField({ type: 'email', label: 'Email', value: '' })
-  const messageField = useField({ type: 'text', label: 'Message', value: '' })
+export const Form = ({ initialValues, validator }) => {
+  const { loading, errors, form, handleBlur, handleChange, handleSubmit } = useForm({ initialValues, validator })
+
   return (
-    <form className={style.form}>
+    <form
+      onSubmit={handleSubmit}
+      className={style.form}>
       <Title>Contact me </Title>
       <Input
-        label={nameField.label}
-        type={nameField.type}
-        value={nameField.value}
-        onChange={nameField.onChange}
+        label='Email'
+        type='email'
+        value={form.email}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        onError={errors.email}
       />
       <Input
-        label={messageField.label}
-        type={messageField.type}
-        value={messageField.value}
-        onChange={messageField.onChange}
+        label='Message'
+        type='text'
+        value={form.message}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        onError={errors.message}
       />
-      <Button styles={{ width: '10rem' }} type='orange-fill'>
+      <Button
+        styles={{ width: '10rem' }}
+        type='orange-fill'
+      >
         Send
       </Button>
     </form>
