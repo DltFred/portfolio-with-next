@@ -1,5 +1,5 @@
 import style from './index.module.css'
-export const Tittle = ({ children }) => {
+export const Title = ({ children }) => {
   return (
     <h2 className={style.h2}>
       {children}

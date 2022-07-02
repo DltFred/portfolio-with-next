@@ -24,3 +24,75 @@
   font-size: 2rem;
   display: block;
 }
+
+.aboutMe {
+  background-color: var(--color-black2);
+  padding: 2rem;
+  color: var(--color-white);
+  display: flex;
+}
+
+.pictureImg img {
+  width: 10rem;
+  height: 15rem;
+  border: 0.45rem solid var(--color-black);
+  object-fit: cover;
+}
+
+.pictureImg {
+  position: relative;
+  z-index: 10;
+  margin: 1.5rem;
+}
+
+.pictureImg::after {
+  content: "";
+  display: block;
+  width: 10rem;
+  height: 15rem;
+  background-color: var(--color-black2);
+  border: 0.45rem solid var(--color-orange);
+  position: absolute;
+  top: 1rem;
+  left: -2rem;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 20rem;
+}
+
+.projects {
+  background-color: var(--color-black);
+  padding: 2rem;
+  color: var(--color-white);
+}
+
+.projectsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+}
+
+@media screen and (max-width: 375px) {
+  .image {
+    display: none;
+  }
+
+  .header {
+    background: var(--color-black);
+  }
+
+  .aboutMe {
+    flex-direction: column;
+  }
+
+  .pictureImg {
+    margin: 1.5rem auto;
+  }
+}
